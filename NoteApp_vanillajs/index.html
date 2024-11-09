@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesApp</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+    />
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <body>
+    <div class="main container mt-4">
+      <header class="text-center mb-4">
+        <h1>NotesApp</h1>
+        <p>Take notes and never forget</p>
+      </header>
+
+      <!-- 검색 및 정렬 옵션 -->
+      <div class="mb-3">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search notes"
+              aria-label="Search notes"
+              id="search-text"
+            />
+          </div>
+          <div class="col">
+            <select
+              class="form-select"
+              id="sort-select"
+              aria-label="Sort notes"
+            >
+              <option selected value="">Sort</option>
+              <option value="byEdited">Last edited</option>
+              <option value="byCreated">Recently created</option>
+              <option value="alphabetical">Alphabetically</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 노트 목록 영역 -->
+      <div id="notes" class="notes mb-3">
+        <!-- Notes will be dynamically rendered here -->
+      </div>
+
+      <!-- 노트 생성 버튼 -->
+      <button id="create-note" class="btn btn-primary">Create Note</button>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
