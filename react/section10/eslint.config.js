@@ -35,6 +35,8 @@ export default [
       ],
       "no-unused-vars": "off",
       "react/prop-types": "off",
+      // 추가됨
+       "react-refresh/only-export-components" :"off"
     },
   },
 ]

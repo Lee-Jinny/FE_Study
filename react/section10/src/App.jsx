@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useRef, useReducer } from 'react';
+import { useState, useRef, useReducer, useCallback  } from 'react';
 import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
@@ -45,8 +45,8 @@ function App() {
   // 기존 useState를 이용하던 상태변화를 useReducer 이용으로 변경
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
-
-  const onCreate = (content) => {
+  // 방법 1.
+  const onCreate = useCallback((content) => {
     dispatch({
       type: 'CREATE',
       data: {
@@ -56,21 +56,22 @@ function App() {
         date: new Date().getTime(),
       },
     });
-  };
+  },[]);
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: 'UPDATE',
       targetId: targetId,
     });
-  };
+  },[])
 
-  const onDelete = (targetId) => {
+  // useCallback에 의해 mount 되었을 때만 딱 한번 생성
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: 'DELETE',
       targetId: targetId,
     });
-  };
+  },[])
 
   return (
     <div className="App">
