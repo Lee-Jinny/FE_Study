@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import DiaryList from '../components/DiaryList';
 import { data } from 'react-router-dom';
 import { use } from 'react';
+import usePageTitle from '../hooks/usePageTitle';
 
 const getMonthlydata = (pivotDate, data) => {
   const beginTime = new Date(
@@ -36,6 +37,8 @@ const Home = () => {
 
   // 날짜 저장
   const [pivotDate, setPivotDate] = useState(new Date());
+
+  usePageTitle('감정 일기장')
 
   const monthlyData = getMonthlydata(pivotDate, data);
   console.log(monthlyData);
